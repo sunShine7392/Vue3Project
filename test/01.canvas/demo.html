@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>canvas</title>
+    <style>
+      .canvas {
+        background-color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 必须指定宽高 -->
+    <canvas class="canvas" width="1000" height="400"></canvas>
+    <script>
+      // 获取canvas元素
+      const canvas = document.querySelector(".canvas");
+      // 通过canvas元素获取画笔
+      const context = canvas.getContext("2d");
+      // 通过画笔绘画
+      // 1. 画线段
+      context.beginPath(); // 开始
+      context.strokeStyle = "pink"; // 样式必须在闭合前完成
+      context.moveTo(100, 100);
+      context.lineTo(200, 200);
+      context.lineTo(300, 100);
+      context.lineTo(100, 100);
+      context.stroke(); // 闭合线段
+      context.closePath(); // 结束
+
+      // 2. 画矩形
+      context.beginPath(); // 开始
+      context.strokeStyle = "yellow";
+      context.strokeRect(100, 250, 100, 100);
+      context.fillStyle = "yellow";
+      context.fillRect(250, 250, 100, 100);
+      context.closePath(); // 结束
+
+      // 3. 画圆
+      context.beginPath(); // 开始
+      context.arc(400, 150, 50, 0, Math.PI, false);
+      context.stroke(); // 闭合线段
+      context.closePath(); // 结束
+
+      // 4. 画文字
+      context.font = "20px 宋体";
+      context.fillText("尚硅谷", 600, 100);
+
+      console.log(context);
+    </script>
+  </body>
+</html>

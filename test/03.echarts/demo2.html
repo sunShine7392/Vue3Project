@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>canvas</title>
+    <style>
+      .container1,
+      .container2,
+      .container3 {
+        width: 1000px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container1"></div>
+    <div class="container2"></div>
+    <div class="container3"></div>
+    <script src="./js/echarts.min.js"></script>
+    <script>
+      const myCharts1 = echarts.init(document.querySelector(".container1"));
+      const myCharts2 = echarts.init(document.querySelector(".container2"));
+      const myCharts3 = echarts.init(document.querySelector(".container3"));
+
+      const option1 = {
+        xAxis: {
+          data: [
+            "星期一",
+            "星期二",
+            "星期三",
+            "星期四",
+            "星期五",
+            "星期六",
+            "星期天",
+          ],
+        },
+        yAxis: {},
+        series: {
+          type: "bar",
+          data: [29, 21, 33, 25, 36, 22, 11],
+        },
+      };
+
+      const option2 = {
+        xAxis: {
+          data: [
+            "星期一",
+            "星期二",
+            "星期三",
+            "星期四",
+            "星期五",
+            "星期六",
+            "星期天",
+          ],
+        },
+        yAxis: {},
+        series: {
+          type: "line",
+          data: [29, 21, 33, 25, 36, 22, 11],
+        },
+      };
+
+      const option3 = {
+        series: {
+          type: "pie",
+          data: [
+            {
+              name: "星期一",
+              value: 29,
+            },
+            {
+              name: "星期二",
+              value: 22,
+            },
+            {
+              name: "星期三",
+              value: 23,
+            },
+          ],
+          radius: [20, 50],
+        },
+      };
+
+      myCharts1.setOption(option1);
+      myCharts2.setOption(option2);
+      myCharts3.setOption(option3);
+    </script>
+  </body>
+</html>

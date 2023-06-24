@@ -1,0 +1,1 @@
+import{s as e}from"./request.59cff57c.js";const g=()=>e.get("/admin/product/getCategory1"),o=t=>e.get(`/admin/product/getCategory2/${t}`),a=t=>e.get(`/admin/product/getCategory3/${t}`);export{o as a,a as b,g};

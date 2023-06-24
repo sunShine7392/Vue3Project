@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>echarts</title>
+    <style>
+      .container {
+        width: 1000px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 2. 准备一个具备宽高的DOM容器 -->
+    <div class="container"></div>
+    <!-- 1. 引入echarts的js文件 -->
+    <script src="./js/echarts.min.js"></script>
+    <script>
+      // 3. 初始化echarts实例
+      const myEcharts = echarts.init(document.querySelector(".container"));
+      // 4. 定义图片的选项（配置项）
+      const option = {
+        // 图表的标题
+        title: {
+          text: "柱形图", // 标题的内容
+        },
+        // x轴
+        xAxis: {
+          data: ["食品", "数码", "服饰", "箱包"], // x轴显示的数据（内容）
+        },
+        // y轴
+        yAxis: {
+          axisLine: {
+            show: true,
+          },
+          axisTick: {
+            show: true,
+          },
+        },
+        // 图表配置
+        series: {
+          type: "bar", // 图表类型
+          data: [100, 120, 90, 110], // 图表的数据
+        },
+      };
+      // 5. 渲染图表
+      myEcharts.setOption(option);
+    </script>
+  </body>
+</html>

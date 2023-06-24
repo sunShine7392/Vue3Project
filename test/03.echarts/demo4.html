@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>echarts</title>
+    <style>
+      .container {
+        width: 1000px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+    <script src="./js/echarts.min.js"></script>
+    <script>
+      function getRandom() {
+        const result = [];
+        for (let index = 0; index < 7; index++) {
+          result.push(Math.round(Math.random() * 100 + 50));
+        }
+        return result;
+      }
+
+      const myEcharts = echarts.init(document.querySelector(".container"));
+      const option = {
+        xAxis: {
+          data: [
+            "星期一",
+            "星期二",
+            "星期三",
+            "星期四",
+            "星期五",
+            "星期六",
+            "星期天",
+          ],
+        },
+        yAxis: {},
+        dataset: {
+          source: [
+            ["星期一", 22, 33, "xx", 11],
+            ["星期二", 25, 35, "yy", 22],
+            ["星期三", 29, 39, "zz", 33],
+            ["星期四", 80, 60],
+            ["星期五", 12, 22],
+            ["星期六", 33, 33],
+            ["星期天", 15, 25],
+          ],
+        },
+        series: [
+          { type: "bar", encode: { x: 0, y: 1 } },
+          { type: "line", encode: { x: 0, y: 2 } },
+          {
+            type: "pie",
+            encode: { itemName: 3, value: 4 },
+            radius: [0, 30],
+            center: ["70%", "10%"],
+          },
+        ],
+      };
+      myEcharts.setOption(option);
+    </script>
+  </body>
+</html>

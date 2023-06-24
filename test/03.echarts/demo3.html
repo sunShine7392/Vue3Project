@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>echarts</title>
+    <style>
+      .container {
+        width: 1000px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+    <script src="./js/echarts.min.js"></script>
+    <script>
+      function getRandom() {
+        const result = [];
+        for (let index = 0; index < 7; index++) {
+          result.push(Math.round(Math.random() * 100 + 50));
+        }
+        return result;
+      }
+
+      const myEcharts = echarts.init(document.querySelector(".container"));
+      const option = {
+        xAxis: {
+          data: [
+            "星期一",
+            "星期二",
+            "星期三",
+            "星期四",
+            "星期五",
+            "星期六",
+            "星期天",
+          ],
+        },
+        yAxis: {},
+        series: [
+          { type: "bar", data: getRandom() },
+          { type: "line", data: getRandom() },
+          {
+            type: "pie",
+            data: getRandom().map((value, i) => {
+              return {
+                name: `数据` + (i + 1),
+                value,
+              };
+            }),
+            radius: [0, 30],
+            center: ["70%", "10%"],
+          },
+        ],
+      };
+      myEcharts.setOption(option);
+    </script>
+  </body>
+</html>
